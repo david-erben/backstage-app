@@ -8,3 +8,39 @@ To start the app, run:
 yarn install
 yarn dev
 ```
+
+To configure the app to persist the catalog to a Postgres database, use the following instructions:
+
+Install Postgres:
+
+```
+sudo apt-get install postgresql
+```
+
+Configure user and password:
+
+```
+sudo -u postgres psql
+ALTER USER postgres PASSWORD 'secret';
+```
+
+Install PostgreSQL client:
+
+```
+yarn add --cwd packages/backend pg
+```
+
+Update database configuration in app-config.yaml file:
+
+```
+backend:
+  database:
+    client: pg
+    connection:
+      host: ${POSTGRES_HOST}
+      port: ${POSTGRES_PORT}
+      user: ${POSTGRES_USER}
+      password: ${POSTGRES_PASSWORD}
+```
+
+To use the persisted catalog functionality, make sure to set the environment variables above on the running machine.
