@@ -44,3 +44,8 @@ backend:
 ```
 
 To use the persisted catalog functionality, make sure to set the environment variables above on the running machine.
+
+
+Change I did in the UI -> renames "APIs" menu item to "Browse APIs".
+
+Node.JS template contains Github Action which is triggered on pull requests. It contains no quality gate steps yet. Exact steps can be defined by the user depending on the project.
